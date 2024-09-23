@@ -1,0 +1,208 @@
+﻿09/09/2024
+Politécnico: Manuel Acevedo Serrano Fe y Alegría
+ (POMAS)
+  
+
+
+
+
+
+
+
+
+
+Sprint: #1      Grupo: #2
+Product Owner: Mariela García Díaz.
+Scrum Master: Holand Neftali Rufino Monegro.
+Desarrolladores: Juandry García, Manuel Saldaña, Jorge Luis Taveras, Carlos Rodríguez, Ronni Rosario, Hansel Miguel.        
+El dia (09/09/2024). La Product Owner (Mariela García), nos encargó tres ejercicios sobre arduino que trataba sobre:
+
+Ejercicio #1:  
+Conectar 5 led a diferentes pines asiendo que ilumine durante 500ms y que apague durante 100ms. Este proceso debe repetirse simultáneamente. Tomar en cuenta como equipo: 
+* Reconocimiento de la placa 
+* Aprender a conectar los leds.
+* Familiarizarse con el entorno de la programación.
+* Reconocer las partes de arduino.
+* Reconocer ordenes como él (pinMode, digitalWrite, y Delay).
+Ejercicio #2:
+Encender 4 leds secuencialmente. Los leds deben de estar conectados a los pines (5, 6, 7, 8). También deben encender y posteriormente apagar los leds (5,8) con un tiempo de duración de encendido y apagado de 200ms. Tomar en cuenta como equipo:
+* Observar el entorno de la programación en el programa.
+* Manejar las variables y tipos de cada valor.
+* Aprender a declarar la funcion que se forman cuando sea necesario.
+Ejercicio #3:
+Desarrollar el crucé de unos semáforos controlados por un arduino, para ello se utilizará el primer semáforo en los pines (opcional), Teniendo en cuenta 3 leds rojos, 4 leds amarillo y 5 leds verdes. 
+En el segundo semáforo se utilizará lo spines (opcional) 6 leds rojos, 7 leds amarillos, 8 leds verdes, la secuencia del funcionamiento debe de ser:
+* Rojo 1 y verde 2: Durante 3 segundos.
+* Rojo 1 y amarillo 2: Durante 500ms.
+* Verde 1 y rojo 2: Durante 3 segundos.
+* Amarillo 1 y rojo 2: Durante 500 ms
+Después como tarea para la casa nos encargaron hacer un resumen de un video.
+Nombre del video: ARDUINO: QUÉ ES, CÓMO FUNCIONA y PARA QUÉ se puede UTILIZAR.
+Arduino:
+
+
+Plataforma de creación electrónica: Es un conjunto de herramientas (hardware y software) que permite a los usuarios crear proyectos electrónicos de forma sencilla y flexible.
+Hardware libre: Las especificaciones y diseños de las placas Arduino son públicos, lo que significa que cualquiera puede fabricar su propia placa o modificar las existentes.
+Software libre: El entorno de programación de Arduino (IDE) es de código abierto, lo que permite a los usuarios personalizarlo y crear sus propias herramientas.
+Microcontrolador: Es el "cerebro" de la placa Arduino. Es un circuito integrado programable que ejecuta las instrucciones que le damos a través del software.
+Periféricos: Son dispositivos externos que se conectan a la placa Arduino para interactuar con el mundo físico. Pueden ser sensores, actuadores, pantallas, etc.
+Otros conceptos importantes:
+Escudos o mochilas: Son placas adicionales que se conectan a la placa Arduino para ampliar sus funcionalidades.
+IDE: Es el entorno de desarrollo integrado de Arduino. Es un programa que se utiliza para escribir, compilar y cargar el código en la placa.
+Código abierto: Significa que el código fuente de un programa está disponible para que cualquiera pueda verlo, modificarlo y distribuirlo.
+Maker: Es una persona que crea objetos físicos utilizando tecnología.
+En resumen:
+
+
+Arduino es una plataforma muy popular entre los makers y entusiastas de la electrónica porque es fácil de usar, flexible y económica. Permite crear una gran variedad de proyectos, desde simples sensores hasta robots complejos.
+11/9/2024
+Comenzamos con el primer ejercicio que nos dejó la Product Owner (Mariela García), en la plataforma de “Tinkercad” comenzamos a seguir todos los pasos dados del primer ejercicio, con el siguiente código:
+// Declaración de variables para los pines de los LEDs
+int led1 = 12;
+int led2 = 11;
+int led3 = 10;
+int led4 = 9;
+int led5 = 8;
+
+
+void setup() {
+  // Configuración de los pines como salidas
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+}
+
+
+void loop() {
+  // Enciende todos los LEDs
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, HIGH);
+  digitalWrite(led4, HIGH);
+  digitalWrite(led5, HIGH);
+  
+  // Espera 500 milisegundos (0.5 segundos)
+  delay(500);
+
+
+  // Apaga todos los LEDs
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  digitalWrite(led4, LOW);
+  digitalWrite(led5, LOW);
+  
+  // Espera 100 milisegundos (0.1 segundos)
+  delay(100);
+}
+Luego comenzamos a hacer la parte física con un arduino que no presto la product Owner (Mariela García).
+Después de la primera hora comenzamos a completar lo que era el segundo ejercicio.
+Tratamos de hacer el físico a la primera pero lamentablemente no era lo que la product Owner (Mariela García) buscaba…
+2do intento:
+Entre el equipo tratamos de solucionar el error del primer intento, luego de tantas ideas para el código:
+// Declaración de variables para los pines de los LEDs
+int led1 = 8;
+int led2 = 7;
+int led3 = 6;
+int led4 = 5;
+
+
+void setup() {
+  // Configuración de los pines como salidas
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  
+}
+
+
+void loop() {
+  // Enciende todos los LEDs
+  digitalWrite(led1, HIGH);
+   delay(500);
+  digitalWrite(led2, HIGH);
+   delay(500);
+  digitalWrite(led3, HIGH);
+   delay(500);
+  digitalWrite(led4, HIGH);
+  // Espera 500 milisegundos (0.5 segundos)
+  delay(500);
+
+
+  // Apaga todos los LEDs
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  digitalWrite(led4, LOW);
+   delay(200);
+  
+   digitalWrite(led1, HIGH);
+   digitalWrite(led4, HIGH);
+   delay(500);
+  // Espera 100 milisegundos (0.1 segundos)
+  delay(200);
+  
+   digitalWrite(led1, LOW);
+   digitalWrite(led4, LOW);
+   delay(200);
+}
+Luego comenzamos a hacer la parte física con un arduino que no presto la Product Owner (Mariela García).
+Entre todo el equipo empezamos a socializar y preguntarnos como hacer el tercer ejercicio, pero tocaron en el último momento...
+13/9/2024
+En el tercer dia que nos tocaba exponer lo que era los tres ejercicios. Nos tocó en el 2do puesto después así que comenzamos a prepararnos para comenzar a exponer, tardamos un poco más en lo que era el físico del tercero porque faltaba una placa arduino.
+Después de haber encontrado una placa (en este caso Arduino Uno) comenzamos a conectar y ensamblar lo que es el ejercicio número 3 con el siguiente código:
+// Declaración de variables para los pines de los LEDs
+int led1 = 12;
+int led2 = 11;
+int led3 = 10;
+int led4 = 9;
+int led5 = 8;
+int led6 = 7;
+
+
+void setup() {
+  // Configuración de los pines como salidas
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  pinMode(led6, OUTPUT);
+  
+}
+
+
+void loop() {
+  
+  
+  digitalWrite(led1, HIGH);
+  digitalWrite(led4, HIGH);
+  delay(3000);
+  
+  digitalWrite(led4, LOW);
+  delay(200);
+  
+  digitalWrite(led5, HIGH);
+  delay(3000);
+ 
+  digitalWrite(led5, LOW);
+  digitalWrite(led1, LOW);
+  delay(200);
+  
+  digitalWrite(led6, HIGH);
+  digitalWrite(led3, HIGH);
+  delay(3000);
+  
+  digitalWrite(led3, LOW);
+  delay(200);
+  
+  digitalWrite(led2, HIGH);
+  delay(700);
+  
+  digitalWrite(led2, LOW);
+  digitalWrite(led6, LOW);
+  delay(100); 
+}
